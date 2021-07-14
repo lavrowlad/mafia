@@ -1,0 +1,216 @@
+// МИКСИНЫ ==============================================================
+@import 'mixins';
+// /МИКСИНЫ =============================================================
+
+
+// ШРИФТЫ ===============================================================
+
+// Подключаем шрифты
+// &display=swap
+// &subset=cirillic-ext
+@import url("https://fonts.googleapis.com/css?family=Heebo:regular,500,700,900&display=swap&subset=cirillic-ext");
+@import 'fonts';
+
+// Иконочные шрифты
+@import 'icons';
+
+// Шрифт по умолчанию
+$fontFamily: "Heebo";
+$fontColor: #21243d;
+
+// /ШРИФТЫ ==============================================================
+
+
+// ПЕРЕМЕННЫЕ ===========================================================
+$minWidth: 320px;
+$maxWidth: 1152px;
+$maxWidthContainer: 856px;
+$md1: $maxWidthContainer + 12px;
+$md2: 991.98px;
+$md3: 767.98px;
+$md4: 479.98px;
+// /ПЕРЕМЕННЫЕ ==========================================================
+
+
+// ОБНУЛЕНИЕ. ОБЩИЕ ПАРАМЕТРЫ ===========================================
+*{margin:0;padding:0;border:0;}
+*,*::before,*::after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box;}
+:focus,:active{outline:none;}
+a:focus,a:active{outline:none;}
+nav,footer,header,aside{display:block;}
+html,body{height:100%;width:100%;font-size:100%;line-height:1;font-size:14px;-ms-text-size-adjust:100%;-moz-text-size-adjust:100%;-webkit-text-size-adjust:100%;}
+input,button.textarea{font-family:inherit;}
+input::-ms-clear{display:none;}
+button{cursor:pointer;}
+button::-moz-focus-inner{padding:0;border:0;}
+a,a:visited{text-decoration:none;}
+a:hover{text-decoration:none;}
+ul li{list-style:none;}
+img{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit;}
+// ======================================================================
+a {
+  color: $fontColor;
+  &:active {
+    color: $fontColor;
+  }
+}
+
+body {
+  font-family: $fontFamily, sans-serif;
+  color: $fontColor;
+  font-size: 14px;
+
+  &.lock {
+    overflow: hidden;
+  }
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.loaded {}
+}
+
+// /ОБНУЛЕНИЕ. ОБЩИЕ ПАРАМЕТРЫ ==========================================
+
+
+// ОСНОВНАЯ СЕТКА =======================================================
+.container {
+  max-width: $maxWidthContainer;
+  margin: 0 auto;
+
+  @media (max-width: $md1) {
+    max-width: 750px;
+  }
+  @media (max-width: $md2) {
+    max-width: none;
+    padding: 0 10px;
+  }
+}
+// /ОСНОВНАЯ СЕТКА ======================================================
+
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ =================
+@import 'forms';
+@import 'ui';
+// /ПОДКЛЮЧЕНИЕ ФАЙЛОВ UI СТИЛЕЙ, ФОРМ И ГОТОВЫХ КЛАССОВ ================
+
+
+// ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТРАНИЦ И ЭЛЕМЕНТОВ ===============================
+@import 'header';
+@import 'footer';
+@import 'home';
+@import 'menu';
+@import 'works';
+@import 'article';
+@import 'blog';
+@import 'contacts';
+// /ПОДКЛЮЧЕНИЕ ФАЙЛОВ СТРАНИЦ И ЭЛЕМЕНТОВ ==============================
+
+
+// ОСНВОНОЙ БЛОК ========================================================
+.page {
+  // TODO Fixed header — margin: 60px 0 0 0;
+  padding: 90px 0 0 0;
+  flex: 1 1 auto;
+  
+  @media (max-width: $md3) {
+    padding: 30px 0 0;
+  }
+}
+//=======================================================================
+.social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  // .social__item
+  &__item {
+    margin: 0 17px;
+    font-size: 30px;
+    color: inherit;
+    
+    transition: color 0.3s ease 0s;
+    
+    @media (min-width: $md3) {
+      &:hover {
+        color: #ff6464;
+      }
+    }
+  }
+}
+//=======================================================================
+.info {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  margin: 0 0 10px 0;
+  
+  @media (max-width: $md3) {
+    font-size: 16px;
+    
+  }
+  
+  // .info__date
+  &__date {
+    white-space: nowrap;
+  }
+  
+  // .info__date
+  &__year {
+    display: inline-flex;
+    background-color: #142850;
+    color: #fff;
+    border-radius: 16px;
+    height: 25px;
+    padding: 0 10px;
+    font-size: 18px;
+    font-weight: 900;
+  }
+  
+  // .info__separator
+  &__separator {
+    margin: 0 15px;
+  }
+  
+  // .info__category
+  &__category {
+    color: #8695a4;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+}
+//=======================================================================
+.categories {
+  display: flex;
+
+  // .categories__item
+  &__item {
+    position: relative;
+    
+    &:not(:last-child)::after {
+      content: ",";
+      margin-right: 10px;
+    }
+
+    @media (max-width: $md4) {
+      &:not(:last-child) {
+        margin-bottom: 10px;
+
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+//=======================================================================
+
+// /ОСНВОНОЙ БЛОК =======================================================

@@ -1,0 +1,25 @@
+//=======================================================================
+.footer {
+  text-align: center;
+  padding: 50px 0;
+
+  @media (max-width: $md3) {
+    padding: 10px 0;
+  }
+
+  // .footer__content {}
+  &__content {}
+  // .footer__social {}
+  &__social {
+    margin: 0 0 25px 0;
+
+    @media (max-width: $md3) {
+      margin: 15px;
+    }
+  }
+  // .footer__copy {}
+  &__copy {
+    margin: 10px 0;
+  }
+}
+//=======================================================================

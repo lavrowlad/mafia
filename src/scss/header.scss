@@ -1,0 +1,57 @@
+//=======================================================================
+.header {
+  //TODO Fixed header — position: fixed;
+  position: relative;
+  background-color: #fff;
+  z-index: 100;
+  
+  // .header__content
+  &__content {
+    max-width: 1054px;
+    margin: 0 auto;
+    padding: 0 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: inherit;
+
+    border: 3px solid #21243d;
+    padding: 3px 5px;
+
+    transition: all 0.2s ease 0s;
+
+    @media (min-width: $md3) {
+      &:hover {
+        color: #ff6464;
+        border-color: #ff6464;
+      }
+    }
+
+    @media (max-width: $md3) {
+      font-size: 20px;
+      padding: 5px 5px 3px;
+    }
+  }
+
+  // .header__menu
+  &__menu {
+    height: 82px;
+
+    padding: 10px 0;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (max-width: $md3) {
+      height: 50px;
+    }
+  }
+}
+//=======================================================================
